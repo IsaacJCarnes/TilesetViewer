@@ -1,0 +1,23 @@
+::ng-deep body,
+::ng-deep html {
+    margin: 0px;
+}
+
+#title{
+    z-index: 0;
+    position: absolute;
+    margin-left: 2vmin;
+    margin-top: 1vmin;
+    
+    display: flex;
+    padding: 2px 40px;
+
+    background-color: var(--modal-background-color);
+    border: 8px solid var(--modal-border-color);
+    border-radius: 100px;
+      
+    h1{
+        position: relative;
+        width: max-content;
+    }    
+}

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TilesetCols, TilesetRows, TilePxSize, TilesetPxHeight, TilesetPxWidth } from '../constants/constants.component';
+import { TilesetRows, TilePxSize, TilesetPxHeight, TilesetPxWidth } from '../constants/constants.component';
 
 @Component({
   selector: 'tile-component',
