@@ -1,6 +1,25 @@
 ::ng-deep body,
 ::ng-deep html {
     margin: 0px;
+} 
+
+
+.content{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.tilesHolder{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc(100% + var(--tile-size));
+    top: calc(var(--tile-size)/-4);
+    left: calc(var(--tile-size)/-4);
 }
 
 #title{

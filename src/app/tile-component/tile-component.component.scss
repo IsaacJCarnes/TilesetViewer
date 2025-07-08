@@ -6,4 +6,6 @@
 
 .tile{
     position: relative;
+    width: var(--tile-size)px;
+    height: var(--tile-size)px;
 }

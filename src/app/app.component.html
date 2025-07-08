@@ -1,11 +1,10 @@
-<style>
-</style>
-
-<main class="main">
+<main class="main" [style.--tile-size]="adjustedPxSize+'px'">
   <div class="content">
     <div id="title">
       <h1>Tileset Viewer</h1>
     </div>
-    <tile-component [zoomLevel]="0.5" [tileId]="0"/>
+    <div class="tilesHolder">
+     <tile-component *ngFor="let tile of tileGen;" [zoomLevel]="zoomLevel" />
+    </div>
   </div>
 </main>
