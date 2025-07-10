@@ -10,7 +10,7 @@ import { NgFor } from '@angular/common';
 })
 export class AppComponent {
   title = 'tileset-viewer';
-  zoomLevel = 0.5;
+  zoomLevel = 0.25;
   adjustedPxSize = TilePxSize * this.zoomLevel
   util = new utilConstants()
   tileGen:number[] = []

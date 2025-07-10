@@ -1,7 +1,17 @@
-.tileHolder{
+.tileDiv{
     position: relative;
     z-index: -2;
     overflow: hidden;
+
+    &.right{
+        rotate: 90deg;
+    }
+    &.back{
+        rotate: 180deg;
+    }
+    &.left{
+        rotate: 270deg;
+    }
 }
 
 .tile{
