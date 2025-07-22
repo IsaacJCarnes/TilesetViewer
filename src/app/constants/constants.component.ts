@@ -6,13 +6,13 @@ export const TilesetRows = 3;
 export const TilesetCols = 2;
 export const TilesetPxWidth = TilePxSize * TilesetRows;
 export const TilesetPxHeight = TilePxSize * TilesetCols;
-export const TilesetOptions = [0,1,2,3,4];
+export const TilesetOptions = [...Array(5).keys()]; //From 0-(N-1)
 const directions = ["", "right", "back", "left"]
 
 export class utilConstants {
   private readonly document = inject(DOCUMENT);
   private readonly window = this.document.defaultView;
-  private ExcludedTiles:number[] = [4]
+  private ExcludedTiles:number[] = []
   isMobile(): boolean {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
