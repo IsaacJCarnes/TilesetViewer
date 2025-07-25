@@ -3,10 +3,10 @@ import { inject } from '@angular/core';
 
 export const TilePxSize = 512;
 export const TilesetRows = 3;
-export const TilesetCols = 2;
+export const TilesetCols = 3;
 export const TilesetPxWidth = TilePxSize * TilesetRows;
 export const TilesetPxHeight = TilePxSize * TilesetCols;
-export const TilesetOptions = [...Array(5).keys()]; //From 0-(N-1)
+export const TilesetOptions = [...Array(7).keys()]; //From 0-(N-1)
 const directions = ["", "right", "back", "left"]
 
 export class utilConstants {
