@@ -1,18 +1,19 @@
 import { DOCUMENT } from '@angular/common';
 import { inject } from '@angular/core';
 
+export const TilesetSrc = process.env['NODE_ENV']==="production" ? "/TilesetViewer/DoodleTilemap.png" : "/DoodleTilemap.png"
 export const TilePxSize = 512;
 export const TilesetRows = 3;
 export const TilesetCols = 3;
 export const TilesetPxWidth = TilePxSize * TilesetRows;
 export const TilesetPxHeight = TilePxSize * TilesetCols;
-export const TilesetOptions = [...Array(7).keys()]; //From 0-(N-1)
+export const TilesetOptions = [...Array(9).keys()]; //From 0-(N-1)
 const directions = ["", "right", "back", "left"]
 
 export class utilConstants {
   private readonly document = inject(DOCUMENT);
   private readonly window = this.document.defaultView;
-  private ExcludedTiles:number[] = []
+  private ExcludedTiles:number[] = [1,4]
   isMobile(): boolean {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent

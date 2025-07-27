@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TilesetRows, TilePxSize, TilesetPxHeight, TilesetPxWidth, TilesetOptions, utilConstants } from '../constants/constants.component';
+import { TilesetSrc, TilesetRows, TilePxSize, TilesetPxHeight, TilesetPxWidth, TilesetOptions, utilConstants } from '../constants/constants.component';
 @Component({
   selector: 'tile-component',
   imports: [],
@@ -8,9 +8,11 @@ import { TilesetRows, TilePxSize, TilesetPxHeight, TilesetPxWidth, TilesetOption
 })
 export class TileComponent {
   @Input() zoomLevel = 1 //set by app component
+  
   tilePxSize = TilePxSize
   tilesetPxWidth = TilesetPxWidth
   tilesetPxHeight = TilesetPxHeight
+  tilesetSrc = TilesetSrc
   util = new utilConstants();
 
   tileId = this.util.getRandomFromAvailableTiles()
@@ -21,5 +23,6 @@ export class TileComponent {
   direction = this.util.getRandomDirection();
 
   constructor(){
+    console.log(this.tilesetSrc)
   }
 }
