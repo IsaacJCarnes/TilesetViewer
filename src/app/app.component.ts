@@ -42,6 +42,7 @@ export class AppComponent {
     e.preventDefault();
     if(this.titleDisplayed){
       this.titleDisplayed = false;
+      this.lastClicked = Date.now();
       return;
     }
     if(this.lastClicked + this.doubleClickTime > Date.now()){
