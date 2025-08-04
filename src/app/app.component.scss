@@ -1,44 +1,96 @@
 ::ng-deep body,
 ::ng-deep html {
-    margin: 0px;
-} 
-
-
-.content{
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
+  margin: 0px;
+  height: 100%;
+  position: relative;
 }
 
-.tilesHolder{
-    z-index: -1;
+@property --c1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ffffff;
+}
+
+@property --c2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ffffff;
+}
+
+.content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.tilesHolder {
+  z-index: -1;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: calc(100% + var(--tile-size));
+  top: calc(var(--tile-size) / -4);
+  left: calc(var(--tile-size) / -4);
+}
+
+#landingPage {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: --c1 1s, --c2 4s;
+  //background: radial-gradient(var(--c1), var(--c2));
+  #cover {
+    width: 100%;
+    height: 100%;
     position: fixed;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: calc(100% + var(--tile-size));
-    top: calc(var(--tile-size)/-4);
-    left: calc(var(--tile-size)/-4);
+    background-color: #000000d3;
+    transition: background-color 1.5s;
+  }
+}
+#landingPage.invisible {
+  --c1: #ffffff00;
+  --c2: #ffffff00;
+  #cover {
+    background-color: #00000000;
+  }
 }
 
-#title{
-    z-index: 0;
-    position: absolute;
-    margin-left: 2vmin;
-    margin-top: 1vmin;
-    
-    display: flex;
-    padding: 2px 40px;
-
-    background-color: var(--modal-background-color);
-    border: 8px solid var(--modal-border-color);
-    border-radius: 100px;
-    transition: opacity 3s;
-      
-    h1{
-        position: relative;
-        width: max-content;
-    }    
+#title {
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 40px;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  transition: opacity 2.5s;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  h1 {
+    font-size: 8vw;
+    text-shadow: 
+        /* first layer at 1px */ -1px -1px 0px #ffffff,
+      0px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 0px 0px #ffffff,
+      1px 0px 0px #ffffff, -1px 1px 0px #ffffff, 0px 1px 0px #ffffff,
+      1px 1px 0px #ffffff, /* second layer at 2px */ -2px -2px 0px #ffffff,
+      -1px -2px 0px #ffffff, 0px -2px 0px #ffffff, 1px -2px 0px #ffffff,
+      2px -2px 0px #ffffff, 2px -1px 0px #ffffff, 2px 0px 0px #ffffff,
+      2px 1px 0px #ffffff, 2px 2px 0px #ffffff, 1px 2px 0px #ffffff,
+      0px 2px 0px #ffffff, -1px 2px 0px #ffffff, -2px 2px 0px #ffffff,
+      -2px 1px 0px #ffffff, -2px 0px 0px #ffffff, -2px -1px 0px #ffffff;
+  }
+  p {
+    font-size: 3vw;
+    text-shadow: 
+        /* first layer at 1px */ -1px -1px 0px #ffffff,
+      0px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 0px 0px #ffffff,
+      1px 0px 0px #ffffff, -1px 1px 0px #ffffff, 0px 1px 0px #ffffff,
+      1px 1px 0px #ffffff;
+  }
 }

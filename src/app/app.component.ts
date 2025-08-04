@@ -1,10 +1,10 @@
 import { Component, HostListener } from '@angular/core';
 import { TileComponent } from './tile-component/tile-component.component';
 import { utilConstants, TilePxSize } from './constants/constants.component';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 @Component({
   selector: 'app-root',
-  imports: [TileComponent, NgFor, NgIf],
+  imports: [TileComponent, NgFor, NgIf, NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
