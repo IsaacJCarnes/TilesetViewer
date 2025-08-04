@@ -1,16 +1,16 @@
-<main class="main" [style.--tile-size]="adjustedPxSize+'px'">
-    <div id="landingPage" [ngClass]="titleDisplayed ?  'visible':'invisible'">
-      <div id="cover"></div>
-      <div id="title" [style.opacity]="titleDisplayed ? 100 : 0 + '%'">
-        <h1>Tileset Viewer</h1>
-        <p>Tap once to make this title page dissapear</p>
-        <p>Tap twice to generate a new image</p>
-      </div>
+<main class="main" [style.--tile-size]="adjustedPxSize + 'px'">
+  <div id="landingPage" [ngClass]="titleDisplayed ? 'visible' : 'invisible'">
+    <div id="cover"></div>
+    <div id="title" [style.opacity]="titleDisplayed ? 100 : 0 + '%'">
+      <h1>Tileset Viewer</h1>
+      <p>Tap once to make this title page dissapear</p>
+      <p>Tap twice to generate a new image</p>
     </div>
-   
-    <div class="content">
+  </div>
+
+  <div class="content">
     <div class="tilesHolder" *ngIf="showingTiles">
-     <tile-component *ngFor="let tile of tileGen;" [zoomLevel]="zoomLevel" />
+      <tile-component *ngFor="let tile of tileGen" [zoomLevel]="zoomLevel" />
     </div>
   </div>
 </main>
