@@ -1,6 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
-:root{
-    --modal-background-color:rgba(189, 195, 199,0.9);
-    --modal-border-color:rgba(127, 140, 141, 1.0);
-    --tile-size:512px;
+:root {
+  --modal-background-color: rgba(189, 195, 199, 0.9);
+  --modal-border-color: rgba(127, 140, 141, 1);
+  --tile-size: 512px;
+
+  --b1: #101720; //Midnight Blue
+  --b2: #011222; //Deep Navy Blue
+  --b3: #171717; //Charcoal Gray
+  --b4: #020d19; //Rich Black
+  --b5: #0c0c0c; //Oil Black
+  --b6: #0d1717; //Dark Slate Gray
+  --b7: #0b1215; //Obsidian
+  --w1: #fffff0; //Ivory
+  --w2: #f4f1f8; //Lavender
+  --w3: #f2f8fc; //Marble
+  --w4: #f8f7f4; //Cold Steel
+  --w5: #fcfcf7; //Pearl
 }
