@@ -12,6 +12,10 @@
     &.left{
         rotate: 270deg;
     }
+
+    &.flipped{
+        transform: scaleX(-1);
+    }
 }
 
 .tile{

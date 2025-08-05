@@ -72,13 +72,14 @@
     background-color: var(--b3);
     transition: background-color 1.5s, opacity 1.5s, --c3 1s, --c4 4s;
   }
-}
-#landingPage.invisible {
-  --c1: #ffffff00;
-  --c2: #ffffff00;
-  #cover {
-    //background-color: #00000000;
-    opacity: 0%;
+
+  &.invisible{
+    --c1: #ffffff00;
+    --c2: #ffffff00;
+    #cover {
+      //background-color: #00000000;
+      opacity: 0%;
+    }
   }
 }
 

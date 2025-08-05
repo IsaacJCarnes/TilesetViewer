@@ -21,6 +21,7 @@ export class TileComponent {
   tileIdY = (Math.floor(this.tileId / TilesetRows))
   startPxY = this.tileIdY * TilePxSize * -1;
   direction = this.util.getRandomDirection();
+  flipped = Math.random() < 0.5 ? "" : "flipped"
 
   constructor(){
     console.log(this.tilesetSrc)
