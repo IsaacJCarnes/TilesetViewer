@@ -1,4 +1,3 @@
-
 ::ng-deep body,
 ::ng-deep html {
   width: 100%;
@@ -8,6 +7,10 @@
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
+  --content-color: var(--b3);
+  --text-color: var(--b3);
+  --text-outline: var(--w4);
+  --background-color: var(--w5);
 }
 
 @property --c1 {
@@ -22,7 +25,13 @@
   initial-value: #ffffff;
 }
 
+.main{
+  background-color: var(--background-color);
+  z-index: 0;
+}
+
 .content {
+  z-index: 1;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -42,7 +51,8 @@
 }
 
 #landingPage {
-  position:relative;
+  z-index: 2;
+  position: relative;
   margin-left: -5vw;
   margin-top: -5vh;
   width: 110vw;
@@ -58,15 +68,17 @@
     left: 0px;
     top: 0px;
     position: fixed;
-    background-color: #000000d3;
-    transition: background-color 1.5s;
+    opacity: 80%;
+    background-color: var(--b3);
+    transition: background-color 1.5s, opacity 1.5s, --c3 1s, --c4 4s;
   }
 }
 #landingPage.invisible {
   --c1: #ffffff00;
   --c2: #ffffff00;
   #cover {
-    background-color: #00000000;
+    //background-color: #00000000;
+    opacity: 0%;
   }
 }
 
@@ -79,27 +91,35 @@
   align-items: center;
   justify-content: center;
   border-radius: 100px;
-  transition: opacity 2.5s;
+  transition: opacity 1.5s;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   h1 {
     font-size: 8vw;
-    text-shadow: 
-        /* first layer at 1px */ -1px -1px 0px #ffffff,
-      0px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 0px 0px #ffffff,
-      1px 0px 0px #ffffff, -1px 1px 0px #ffffff, 0px 1px 0px #ffffff,
-      1px 1px 0px #ffffff, /* second layer at 2px */ -2px -2px 0px #ffffff,
-      -1px -2px 0px #ffffff, 0px -2px 0px #ffffff, 1px -2px 0px #ffffff,
-      2px -2px 0px #ffffff, 2px -1px 0px #ffffff, 2px 0px 0px #ffffff,
-      2px 1px 0px #ffffff, 2px 2px 0px #ffffff, 1px 2px 0px #ffffff,
-      0px 2px 0px #ffffff, -1px 2px 0px #ffffff, -2px 2px 0px #ffffff,
-      -2px 1px 0px #ffffff, -2px 0px 0px #ffffff, -2px -1px 0px #ffffff;
+    color: var(--text-color);
   }
   p {
     font-size: 3vw;
-    text-shadow: 
-        /* first layer at 1px */ -1px -1px 0px #ffffff,
-      0px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 0px 0px #ffffff,
-      1px 0px 0px #ffffff, -1px 1px 0px #ffffff, 0px 1px 0px #ffffff,
-      1px 1px 0px #ffffff;
+    color: var(--text-color);
   }
+}
+
+.pxOutline {
+  text-shadow:   
+  /* first layer at 1px */ -1px -1px 0px var(--text-outline),
+    0px -1px 0px var(--text-outline), 1px -1px 0px var(--text-outline),
+    -1px 0px 0px var(--text-outline), 1px 0px 0px var(--text-outline),
+    -1px 1px 0px var(--text-outline), 0px 1px 0px var(--text-outline),
+    1px 1px 0px var(--text-outline),
+}
+.twoPxOutline {
+  text-shadow:   
+    /* second layer at 2px */ -2px -2px 0px var(--text-outline),
+    -1px -2px 0px var(--text-outline), 0px -2px 0px var(--text-outline),
+    1px -2px 0px var(--text-outline), 2px -2px 0px var(--text-outline),
+    2px -1px 0px var(--text-outline), 2px 0px 0px var(--text-outline),
+    2px 1px 0px var(--text-outline), 2px 2px 0px var(--text-outline),
+    1px 2px 0px var(--text-outline), 0px 2px 0px var(--text-outline),
+    -1px 2px 0px var(--text-outline), -2px 2px 0px var(--text-outline),
+    -2px 1px 0px var(--text-outline), -2px 0px 0px var(--text-outline),
+    -2px -1px 0px var(--text-outline);
 }
