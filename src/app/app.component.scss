@@ -42,12 +42,11 @@
 .tilesHolder {
   z-index: -1;
   position: fixed;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--tile-size));
   width: calc(100% + var(--tile-size));
-  top: calc(var(--tile-size) / -4);
-  left: calc(var(--tile-size) / -4);
+  top: calc(var(--tile-size) / -2);
+  left: calc(var(--tile-size) / -2);
 }
 
 #landingPage {
