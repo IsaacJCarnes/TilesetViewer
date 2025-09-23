@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TilesetSrc, TilesetRows, TilePxSize, TilesetPxHeight, TilesetPxWidth, TilesetOptions, utilConstants } from '../constants/constants.component';
+import { TilesetSrc, TilesetCols, TilePxSize, TilesetPxHeight, TilesetPxWidth, TilesetOptions, utilConstants } from '../constants/constants.component';
 @Component({
   selector: 'tile-component',
   imports: [],
@@ -16,9 +16,9 @@ export class TileComponent {
   util = new utilConstants();
 
   tileId = this.util.getRandomFromAvailableTiles()
-  tileIdX = ((this.tileId) % TilesetRows)
+  tileIdX = ((this.tileId) % TilesetCols)
   startPxX = this.tileIdX * TilePxSize * -1
-  tileIdY = (Math.floor(this.tileId / TilesetRows))
+  tileIdY = (Math.floor(this.tileId / TilesetCols))
   startPxY = this.tileIdY * TilePxSize * -1;
   direction = this.util.getRandomDirection();
   flipped = Math.random() < 0.5 ? "" : "flipped"
