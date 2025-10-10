@@ -41,10 +41,10 @@ npm install
 npm run start
 ```
 
-## Future Plans
-
-I am currently exploring overlaying color onto the result. Although it is not hard to add color using CSS alpha masking, it compromises the image quality in a way that ruins the tessellation. Therefore, I am looking to either fix the current implementation or migrate the project to new software with more visual control.
-
 ## Screenshots
 
 ![Tileset Viewer Gif](./public//TilesetViewer.gif)
+
+## Future Plans
+
+I am currently exploring overlaying color onto the result. Although it is not hard to add color using CSS alpha masking, it compromises the image quality in a way that ruins the tessellation. Therefore, I am looking to either fix the current implementation or migrate the project to new software with more visual control.
