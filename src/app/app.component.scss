@@ -44,6 +44,9 @@
   position: fixed;
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--tile-size));
+  grid-gap: 0px;
+  justify-content: center;
+  align-items: center;
   width: calc(100% + var(--tile-size));
   top: calc(var(--tile-size) / -2);
   left: calc(var(--tile-size) / -2);

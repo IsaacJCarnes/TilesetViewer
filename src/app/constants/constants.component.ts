@@ -13,7 +13,7 @@ const directions = ["", "right", "back", "left"]
 export class utilConstants {
   private readonly document = inject(DOCUMENT);
   private readonly window = this.document.defaultView;
-  private ExcludedTiles:number[] = [3]
+  private ExcludedTiles:number[] = []
   isMobile(): boolean {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
