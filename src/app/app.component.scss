@@ -33,8 +33,8 @@
 .content {
   z-index: 1;
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   display: flex;
   flex-direction: row;
 }
@@ -55,14 +55,15 @@
 #landingPage {
   z-index: 2;
   position: relative;
-  margin-left: -5vw;
-  margin-top: -5vh;
-  width: 110vw;
-  height: 110vh;
+  margin-left: -5dvw;
+  margin-top: -5dvh;
+  width: 110dvw;
+  height: 110dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: --c1 1s, --c2 4s;
+  touch-action: manipulation;
   //background: radial-gradient(var(--c1), var(--c2));
   #cover {
     width: calc(100% + 1px);
@@ -73,6 +74,7 @@
     opacity: 80%;
     background-color: var(--b3);
     transition: background-color 1.5s, opacity 1.5s, --c3 1s, --c4 4s;
+    touch-action: inherit;
   }
 
   &.invisible{
@@ -94,15 +96,18 @@
   align-items: center;
   justify-content: center;
   border-radius: 100px;
-  transition: opacity 1.5s;
+  transition: opacity 1.25s;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  touch-action: inherit;
   h1 {
     font-size: 8vw;
     color: var(--text-color);
+    touch-action: inherit;
   }
   p {
     font-size: 3vw;
-    color: var(--text-color);
+    color: var(--text-color);  
+    touch-action: inherit;
   }
 }
 
