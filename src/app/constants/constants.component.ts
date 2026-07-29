@@ -44,7 +44,36 @@ export class utilConstants {
     let chosenId = Math.floor(Math.random() * adjustedTileset.length);
     return adjustedTileset[chosenId];
   }
+  getTileById(tileId:number){
+    return TilesetOptions[tileId % TilesetOptions.length];
+  }
   getRandomDirection(){
     return directions[Math.floor(Math.random()*4)];
+  }
+
+  createHash(seed:number, x:number, y:number){
+    let h = seed;
+
+    h ^= x * 0x27d4eb2d;
+    h = Math.imul(h, 0x85ebca6b);
+
+    h ^= y * 0x165667b1;
+    h = Math.imul(h, 0xc2b2ae35);
+
+    h ^= h >>> 16;
+    return h >>> 0;
+  }
+  getRotationByHash(hash:number){
+    var rotation = ((hash >> 8) & 3) * 90;
+    switch(rotation){
+      case 90:
+        return "right";
+      case 180:
+        return "back";
+      case 270:
+        return "left";
+      default:
+        return "";
+    }
   }
 }

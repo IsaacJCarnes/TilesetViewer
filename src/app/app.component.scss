@@ -47,9 +47,9 @@
   grid-gap: 0px;
   justify-content: center;
   align-items: center;
-  width: calc(100% + var(--tile-size));
-  top: calc(var(--tile-size) / -2);
-  left: calc(var(--tile-size) / -2);
+  width: calc(100% + var(--tile-size) * 4.0);
+  top: calc(var(--tile-size) * -1.5);
+  left: calc(var(--tile-size) * -1.5);
 }
 
 #landingPage {
@@ -64,6 +64,7 @@
   justify-content: center;
   transition: --c1 1s, --c2 4s;
   touch-action: manipulation;
+  pointer-events: none;
   //background: radial-gradient(var(--c1), var(--c2));
   #cover {
     width: calc(100% + 1px);
