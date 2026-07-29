@@ -10,7 +10,7 @@
 
   <div class="content">
     <div class="tilesHolder" *ngIf="showingTiles">
-      <tile-component *ngFor="let tile of tileGen" [zoomLevel]="zoomLevel" />
+      <tile-component *ngFor="let tile of tileGen; let i = index" [tileId]="i" [gridX]="tileWidth" [gridY]="tileHeight" [zoomLevel]="zoomLevel" [seedVal]="currentDate"/>
     </div>
   </div>
 </main>
