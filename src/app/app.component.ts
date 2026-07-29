@@ -43,8 +43,7 @@ export class AppComponent {
     this.tileGen = newTiles;
   }
 
-  currentDate = Date.now()
-  randomSeed = this.currentDate;
+  randomSeed = Date.now();
   
   titleDisplayed = true;
   lastClicked: number = -1;
@@ -59,6 +58,7 @@ export class AppComponent {
       return;
     }
     if (this.lastClicked + this.doubleClickTime > Date.now()) {
+      this.randomSeed = Date.now();
       this.constructTiles();
       this.reloadTiles();
       this.lastClicked = -1;
