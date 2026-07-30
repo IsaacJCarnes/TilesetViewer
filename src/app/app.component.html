@@ -9,7 +9,7 @@
   </div>
 
   <div class="content">
-    <div class="tilesHolder" *ngIf="showingTiles" [style.margin-left]="gridAdjustX + 'px'" [style.margin-top]="gridAdjustY + 'px'">
+    <div class="tilesHolder" *ngIf="showingTiles" [style.transform]="'translate3d('+gridAdjustX+'px , '+gridAdjustY+'px, 0px)'" cdkDrag (cdkDragMoved)="onDragMoved($event)" (cdkDragEnded)="onDragEnded()"> 
       <tile-component *ngFor="let tile of tileGen; let i = index" [tileId]="i" [gridX]="tileWidth" [gridY]="tileHeight" [zoomLevel]="zoomLevel" [seedVal]="randomSeed" [tileModX]="tileAdjustX" [tileModY]="tileAdjustY"/>
     </div>
   </div>

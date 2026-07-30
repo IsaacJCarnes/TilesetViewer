@@ -64,6 +64,7 @@
   justify-content: center;
   transition: --c1 1s, --c2 4s;
   touch-action: manipulation;
+  pointer-events: none;
   //background: radial-gradient(var(--c1), var(--c2));
   #cover {
     width: calc(100% + 1px);

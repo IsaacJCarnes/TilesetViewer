@@ -1,14 +1,17 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { TileComponent } from './tile-component/tile-component.component';
 import { utilConstants, TilePxSize } from './constants/constants.component';
 import { NgClass, NgFor, NgIf } from '@angular/common';
+import { CdkDrag, CdkDragMove } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-root',
-  imports: [TileComponent, NgFor, NgIf, NgClass],
+  imports: [TileComponent, NgFor, NgIf, NgClass, CdkDrag],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  @ViewChild(CdkDrag) drag!: CdkDrag;
+  
   title = 'tileset-viewer';
   zoomLevel = 0.25;
   adjustedPxSize = TilePxSize * this.zoomLevel;
@@ -35,8 +38,8 @@ export class AppComponent {
   tileWidth = this.getTileWidth();
   tileHeight = this.getTileHeight();
 
-  tileAdjustX = 0
-  tileAdjustY = 0
+  tileAdjustX = 0;
+  tileAdjustY = 0;
 
   gridAdjustX = 0;
   gridAdjustY = 0;
@@ -71,51 +74,59 @@ export class AppComponent {
     }
   }
 
-  moveTileAdjustment(x:number, y:number){
+  moveTileAdjustment(x: number, y: number) {
     this.tileAdjustX += x;
     this.tileAdjustY += y;
   }
 
-  gridTileAdjustment(x:number, y:number){
-    this.gridAdjustX += x
-    this.gridAdjustY += y
-    if(this.gridAdjustX > this.adjustedPxSize){
-      this.moveTileAdjustment(-1, 0)
-      this.gridAdjustX -= this.adjustedPxSize
-    } else if (this.gridAdjustX < -this.adjustedPxSize){
-      this.moveTileAdjustment(1, 0)
-      this.gridAdjustX += this.adjustedPxSize
+  gridTileAdjustment(x: number, y: number) {
+    this.gridAdjustX += x;
+    this.gridAdjustY += y;
+    if (this.gridAdjustX > this.adjustedPxSize) {
+      this.moveTileAdjustment(-1, 0);
+      this.gridAdjustX -= this.adjustedPxSize;
+      this.resetPointerForDrag(-this.adjustedPxSize, 0);
+    } else if (this.gridAdjustX < -this.adjustedPxSize) {
+      this.moveTileAdjustment(1, 0);
+      this.gridAdjustX += this.adjustedPxSize;
+      this.resetPointerForDrag(this.adjustedPxSize, 0);
     }
 
-    if(this.gridAdjustY > this.adjustedPxSize){
-      this.moveTileAdjustment(0, -1)
-      this.gridAdjustY -= this.adjustedPxSize
-    } else if (this.gridAdjustY < -this.adjustedPxSize){
-      this.moveTileAdjustment(0, 1)
-      this.gridAdjustY += this.adjustedPxSize
+    if (this.gridAdjustY > this.adjustedPxSize) {
+      this.moveTileAdjustment(0, -1);
+      this.gridAdjustY -= this.adjustedPxSize;
+      this.resetPointerForDrag(0, -this.adjustedPxSize);
+    } else if (this.gridAdjustY < -this.adjustedPxSize) {
+      this.moveTileAdjustment(0, 1);
+      this.gridAdjustY += this.adjustedPxSize;
+      this.resetPointerForDrag(0, this.adjustedPxSize);
     }
   }
 
-  gridIncrementAdjustment = 5
-  @HostListener('window:keydown', ['$event'])
-  keyEvent(event: KeyboardEvent) {
-    let adjustmentX = 0
-    let adjustmentY = 0
-    let incrementSize = this.adjustedPxSize/this.gridIncrementAdjustment
-    if (event.key == 'ArrowDown') {
-      adjustmentY += incrementSize
-    }
-    if (event.key == 'ArrowUp') {
-      adjustmentY -= incrementSize
-    }
-    
-    if (event.key == 'ArrowLeft') {
-      adjustmentX -= incrementSize
-    }
-    if (event.key == 'ArrowRight') {
-      adjustmentX += incrementSize
-    }
+  lastDragX = 0;
+  lastDragY = 0;
 
-    this.gridTileAdjustment(adjustmentX, adjustmentY)
+  onDragMoved(event: CdkDragMove) {
+    const deltaX = event.distance.x - this.lastDragX;
+    const deltaY = event.distance.y - this.lastDragY;
+
+    this.lastDragX = event.distance.x;
+    this.lastDragY = event.distance.y;
+
+    this.gridTileAdjustment(deltaX, deltaY);
+  }
+
+  onDragEnded() {
+    this.lastDragX = 0;
+    this.lastDragY = 0;
+  }
+
+  resetPointerForDrag(x: number, y: number) {
+    const pos = this.drag.getFreeDragPosition();
+
+    this.drag.setFreeDragPosition({
+      x: pos.x + x,
+      y: pos.y + y,
+    });
   }
 }
