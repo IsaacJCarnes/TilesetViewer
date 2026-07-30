@@ -1,5 +1,4 @@
-import { Component, input, Input } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, input, Input, OnChanges } from '@angular/core';
 
 import {
   TilesetSrc,
@@ -16,12 +15,15 @@ import {
   templateUrl: './tile-component.component.html',
   styleUrl: './tile-component.component.scss',
 })
-export class TileComponent implements OnInit {
+export class TileComponent implements OnChanges {
   @Input() tileId!: number; //set by app component
   @Input() gridX!: number; //set by app component
   @Input() gridY!: number; //set by app component
   @Input() zoomLevel!: number; //set by app component
   @Input() seedVal!: number; //set by app component
+
+  @Input() tileModX!: number; //set by app component
+  @Input() tileModY!: number; //set by app component
 
   tilePxSize = TilePxSize;
   tilesetPxWidth = TilesetPxWidth;
@@ -41,9 +43,9 @@ export class TileComponent implements OnInit {
   direction!: string;
   flipped!: string;
 
-  ngOnInit(): void {
-    this.tileIdX = this.tileId % this.gridX;
-    this.tileIdY = Math.floor(this.tileId / this.gridX);
+  ngOnChanges(): void {
+    this.tileIdX = this.tileId % this.gridX + this.tileModX;
+    this.tileIdY = Math.floor(this.tileId / this.gridX) + this.tileModY;
 
     this.hashVal = this.util.createHash(
       this.seedVal || 0,
@@ -58,17 +60,7 @@ export class TileComponent implements OnInit {
     this.tilePictureIdY = Math.floor(this.tilePictureId / TilesetCols);
     this.startPxY = this.tilePictureIdY * TilePxSize * -1;
 
-    this.direction = this.util.getRotationByHash(this.hashVal); //this.util.getRandomDirection();
+    this.direction = this.util.getRotationByHash(this.hashVal); 
     this.flipped =((this.hashVal >> 10) & 1) === 1 ? '' : 'flipped';
-
-    console.log(
-      this.tileIdX,
-      ' ',
-      this.tileIdY,
-      ' ',
-      this.tilePictureId,
-      ' ',
-      this.hashVal,
-    );
   }
 }

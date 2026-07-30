@@ -9,8 +9,8 @@
   </div>
 
   <div class="content">
-    <div class="tilesHolder" *ngIf="showingTiles">
-      <tile-component *ngFor="let tile of tileGen; let i = index" [tileId]="i" [gridX]="tileWidth" [gridY]="tileHeight" [zoomLevel]="zoomLevel" [seedVal]="randomSeed"/>
+    <div class="tilesHolder" *ngIf="showingTiles" [style.margin-left]="gridAdjustX + 'px'" [style.margin-top]="gridAdjustY + 'px'">
+      <tile-component *ngFor="let tile of tileGen; let i = index" [tileId]="i" [gridX]="tileWidth" [gridY]="tileHeight" [zoomLevel]="zoomLevel" [seedVal]="randomSeed" [tileModX]="tileAdjustX" [tileModY]="tileAdjustY"/>
     </div>
   </div>
 </main>

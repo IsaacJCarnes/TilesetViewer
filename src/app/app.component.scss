@@ -47,9 +47,9 @@
   grid-gap: 0px;
   justify-content: center;
   align-items: center;
-  width: calc(100% + var(--tile-size));
-  top: calc(var(--tile-size) / -2);
-  left: calc(var(--tile-size) / -2);
+  width: calc(100% + var(--tile-size) * 4.0);
+  top: calc(var(--tile-size) * -1.5);
+  left: calc(var(--tile-size) * -1.5);
 }
 
 #landingPage {
