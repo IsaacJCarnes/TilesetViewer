@@ -95,20 +95,23 @@
   padding: 2px 40px;
   width: fit-content;
   align-items: center;
-  justify-content: center;
   border-radius: 100px;
   transition: opacity 1.25s;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   touch-action: inherit;
   h1 {
-    font-size: 8vw;
+    text-align: center;
+    font-size: 5rem;
     color: var(--text-color);
     touch-action: inherit;
+    margin: 0px;
   }
   p {
-    font-size: 3vw;
+    text-align: center;
+    font-size: 3rem;
     color: var(--text-color);  
     touch-action: inherit;
+    margin-bottom: 0px;
   }
 }
 

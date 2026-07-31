@@ -107,6 +107,9 @@ export class AppComponent {
   lastDragY = 0;
 
   onDragMoved(event: CdkDragMove) {
+    if (this.titleDisplayed) {
+      this.titleDisplayed = false;
+    }
     const deltaX = event.distance.x - this.lastDragX;
     const deltaY = event.distance.y - this.lastDragY;
 
