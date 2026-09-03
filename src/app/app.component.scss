@@ -39,9 +39,15 @@
   flex-direction: row;
 }
 
-.tilesHolder {
+.dragSurface {
   z-index: -1;
   position: fixed;
+  inset: 0;
+}
+
+.tilesHolder {
+  z-index: -1;
+  position: absolute;
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--tile-size));
   grid-gap: 0px;

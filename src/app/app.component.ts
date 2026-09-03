@@ -20,6 +20,12 @@ export class AppComponent {
   constructor() {
     this.constructTiles();
   }
+  @HostListener('window:resize')
+  handleResize() {
+    this.tileWidth = this.getTileWidth();
+    this.tileHeight = this.getTileHeight();
+    this.constructTiles();
+  }
   getTileHeight(): number {
     return (
       Math.floor(
