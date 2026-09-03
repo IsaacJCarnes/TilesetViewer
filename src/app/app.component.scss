@@ -25,7 +25,7 @@
   initial-value: #ffffff;
 }
 
-.main{
+.main {
   background-color: var(--background-color);
   z-index: 0;
 }
@@ -53,7 +53,7 @@
   grid-gap: 0px;
   justify-content: center;
   align-items: center;
-  width: calc(100% + var(--tile-size) * 4.0);
+  width: calc(100% + var(--tile-size) * 4);
   top: calc(var(--tile-size) * -1.5);
   left: calc(var(--tile-size) * -1.5);
 }
@@ -68,7 +68,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: --c1 1s, --c2 4s;
+  transition:
+    --c1 1s,
+    --c2 4s;
   touch-action: manipulation;
   pointer-events: none;
   //background: radial-gradient(var(--c1), var(--c2));
@@ -80,11 +82,15 @@
     position: fixed;
     opacity: 80%;
     background-color: var(--b3);
-    transition: background-color 1.5s, opacity 1.5s, --c3 1s, --c4 4s;
+    transition:
+      background-color 1.5s,
+      opacity 1.5s,
+      --c3 1s,
+      --c4 4s;
     touch-action: inherit;
   }
 
-  &.invisible{
+  &.invisible {
     --c1: #ffffff00;
     --c2: #ffffff00;
     #cover {
@@ -107,7 +113,7 @@
   touch-action: inherit;
   h1 {
     text-align: center;
-    font-size: 5rem;
+    font-size: 3.5em;
     color: var(--text-color);
     touch-action: inherit;
     margin: 0px;
@@ -115,8 +121,8 @@
   }
   p {
     text-align: center;
-    font-size: 2.5rem;
-    color: var(--text-color);  
+    font-size: 2em;
+    color: var(--text-color);
     touch-action: inherit;
     margin: 10px;
     padding: 0px;
@@ -125,21 +131,44 @@
 
 .pxOutline {
   text-shadow:   
-  /* first layer at 1px */ -1px -1px 0px var(--text-outline),
-    0px -1px 0px var(--text-outline), 1px -1px 0px var(--text-outline),
-    -1px 0px 0px var(--text-outline), 1px 0px 0px var(--text-outline),
-    -1px 1px 0px var(--text-outline), 0px 1px 0px var(--text-outline),
-    1px 1px 0px var(--text-outline),
+  /* first layer at 1px */
+    -1px -1px 0px var(--text-outline),
+    0px -1px 0px var(--text-outline),
+    1px -1px 0px var(--text-outline),
+    -1px 0px 0px var(--text-outline),
+    1px 0px 0px var(--text-outline),
+    -1px 1px 0px var(--text-outline),
+    0px 1px 0px var(--text-outline),
+    1px 1px 0px var(--text-outline);
 }
 .twoPxOutline {
   text-shadow:   
-    /* second layer at 2px */ -2px -2px 0px var(--text-outline),
-    -1px -2px 0px var(--text-outline), 0px -2px 0px var(--text-outline),
-    1px -2px 0px var(--text-outline), 2px -2px 0px var(--text-outline),
-    2px -1px 0px var(--text-outline), 2px 0px 0px var(--text-outline),
-    2px 1px 0px var(--text-outline), 2px 2px 0px var(--text-outline),
-    1px 2px 0px var(--text-outline), 0px 2px 0px var(--text-outline),
-    -1px 2px 0px var(--text-outline), -2px 2px 0px var(--text-outline),
-    -2px 1px 0px var(--text-outline), -2px 0px 0px var(--text-outline),
+    /* second layer at 2px */
+    -2px -2px 0px var(--text-outline),
+    -1px -2px 0px var(--text-outline),
+    0px -2px 0px var(--text-outline),
+    1px -2px 0px var(--text-outline),
+    2px -2px 0px var(--text-outline),
+    2px -1px 0px var(--text-outline),
+    2px 0px 0px var(--text-outline),
+    2px 1px 0px var(--text-outline),
+    2px 2px 0px var(--text-outline),
+    1px 2px 0px var(--text-outline),
+    0px 2px 0px var(--text-outline),
+    -1px 2px 0px var(--text-outline),
+    -2px 2px 0px var(--text-outline),
+    -2px 1px 0px var(--text-outline),
+    -2px 0px 0px var(--text-outline),
     -2px -1px 0px var(--text-outline);
+}
+
+@media screen and (min-width: 600px) {
+  #title {
+    h1 {
+      font-size: 5rem;
+    }
+    p {
+      font-size: 2.5rem;
+    }
+  }
 }
